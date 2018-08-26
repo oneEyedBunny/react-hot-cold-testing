@@ -1,10 +1,27 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 
 import GuessForm from '../components/guess-form';
 
 describe('<GuessForm />', () => {
     it('Renders without crashing', () => {
         shallow(<GuessForm />);
+    });
+
+    it('Should fire the onMakeGuess callback when the form is submitted', () => {
+      const callback = jest.fn();
+      const wrapper = mount(<GuessForm onMakeGuess={callback} />);
+      const testGuess = 10;
+      wrapper.find('input[type="number"]').instance().value = testGuess;
+      wrapper.simulate('submit');
+      expect(callback).toHaveBeenCalledWith(testGuess.toString());
+    });
+
+    it('Should reset input when form is submitted', () => {
+      const wrapper = mount(<GuessForm />);
+      const input = wrapper.find('input[type="number"]');
+      input.instance().value = 10;
+      wrapper.simulate('submit');
+      expect(input.instance().value).toEqual('');
     });
 });
