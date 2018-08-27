@@ -2,6 +2,13 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 env:
-  - CI=true
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: EQbp8iXW2nx0Ku7qOTcpOto6GpbV7AWVs84dUhMticiGqEmt4BwULWUtlTONSrSJvirp8qm+lyajulNh7ilnSXSCGirla5AtgQtLJQqTzA/9M4l6BNxcEoFgz2Ll5vY6MglgjANp25xzMJC2V0LFE/sVCN67sXMDzUPpslX/tR087KapfgS6pYdE4NUpnm8Bwv0pprzYa6/gnuQexfPZA5HAudILWqHQXmandSPHL4dua0cKtPDNy0AhDXkNRGnv9WfkbJ3Y1Zl5ePp4K/vcWQnO4wS6SV5Kdkzv0AqV3dvqlYB6ibR6kfK7wB7BPta+suMjLOOn22gVhSeWZxsNqxdb0cqmtA12wHVx8hLNDzH/WUeWrCghLiC0Zp2cBBEo7vMNQYlnkz16O+TlBAgwe1jqhkuBiQdXQELg62ZKm40JLHzhwN828aKUNGxMzknrKPokEx1sPxi3Bypm7forOGSmQQL/21MnuIMgKFutpsf34je0QWZfG5XXPm08Tk0pVH3qprcIetdbJKBoD+7MtRPiW2/7IStlbqeCC4B7Kbau20ZguFSiLu+lLX3Z6/tSfzolfKaK5gLntZdVADoKKJe4eygghV4+0mDa8szF1FX+XVnSnJKcE518YLHu/qArOR8aHyZDZLlz3r3p6LTeawG1uu3NP3ajfuMOpPI2nlM=
+  app: intense-bayou-32657
+  on:
+    repo: oneEyedBunny/react-hot-cold-testing
